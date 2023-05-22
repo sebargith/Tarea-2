@@ -1,4 +1,6 @@
-
+/**
+ * Clase que recibe la solicitud del comprador
+ * */
 
 public class Comprador{
     private String sabor;
