@@ -18,7 +18,6 @@ abstract class Moneda{
     public abstract int getValor();
 }
 
-
 /**
  * Clase de monedas de valor 1500, hereda de moneda
  * */
@@ -33,7 +32,6 @@ class Moneda1500 extends Moneda{
         return valor;
     }
 }
-
 
 /**
  * Clase de monedas de valor 1000, hereda de moneda
