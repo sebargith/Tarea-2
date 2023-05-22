@@ -3,7 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 
 
-
+/**
+ * Clase que representa el panel del Expendedor
+ * */
 class PanelExpendedor extends JPanel {
     
     private int x;
@@ -14,8 +16,12 @@ class PanelExpendedor extends JPanel {
     private Deposito snickers;
     private Deposito sprite;
     private Deposito super8;
-    
 
+
+    /** Constructor, agrega productos al expendedor
+     * @param numProducto numero de productos
+     * @param precio precio del producto
+     * */
     public PanelExpendedor (int numProducto, int precio){
         exp = new Expendedor(5, 400);
         x = 700;
@@ -42,9 +48,12 @@ class PanelExpendedor extends JPanel {
     public int getY(){
         return y;
     }
-    
-    
-    
+
+
+    /** Metodo que dibuja y muestra elementos en la GUI
+     * @param g representa el contexto grafico
+     * @param panel representa en donde se dibujara
+     */
     public void paint(Graphics g,JPanel panel){
         super.paint(g);
         

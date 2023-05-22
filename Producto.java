@@ -5,21 +5,31 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-
+/**
+ * Clase padre de Bebidas y Dulces, se la usa para llamar a estas clases
+ * */
 public abstract class Producto{   
     private int x;
     private int y;
     private int serie;
     protected static int serieBebidas = 0 ;
-    
+
+
+    /** Constructor que recibe la serie del producto y lo guarda
+     * @param serie recibe la serie para usarla como producto (int)
+     * */
     public Producto(int serie){
         this.serie=serie;
     }
-    
+
+
+    /** Metodo que retorna la serie con un getter
+     * @return retorna la serie del producto
+     * */
     public int getSerie(){
         return serie;
     }
-    
+
     public abstract String getName();
     
     public void paint(Graphics g){};
@@ -48,15 +58,31 @@ public abstract class Producto{
     public void paint(Graphics g, JPanel panel){}
 }
 
+
+
+
+/**
+ * Clase Bebida que hereda de Producto
+ * */
 abstract class Bebida extends Producto{
-    
+
+    /** Constructor que toma la serie y la relaciona con su clase padre
+     * @param serie recibe la serie de la bebida (int)
+     * */
     public Bebida(int serie){
         super(serie);
     }
 }
 
+
+/**
+ * Clase Sprite que hereda de Bebida
+ * */
 class Sprite extends Bebida{
-    
+
+    /** Constructor que toma la serie y la relaciona con su clase padre
+     * @param serie recibe la serie de la bebida (int)
+     * */
     public Sprite(int serie){
         super(serie);
     }
@@ -64,6 +90,12 @@ class Sprite extends Bebida{
     public String getName(){
         return "Sprite";
     }
+
+
+    /** Metodo que dibuja y muestra elementos en la GUI, dibuja la lata de Sprite
+     * @param g representa el contexto grafico
+     * @param panel representa en donde se dibujara
+     */
     public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoSprite.png")).getImage();
@@ -76,6 +108,12 @@ class Sprite extends Bebida{
     }
 }
 
+
+
+
+/**
+ * Clase Sprite que hereda de Bebida
+ * */
 class CocaCola extends Bebida{
     
     public CocaCola(int serie){
@@ -85,7 +123,13 @@ class CocaCola extends Bebida{
     public String getName(){
         return "Coca-Cola";
     }
-    
+
+
+
+    /** Metodo que dibuja y muestra elementos en la GUI, dibuja la lata de CocaCola
+     * @param g representa el contexto grafico
+     * @param panel representa en donde se dibujara
+     */
     public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoCocaCola.png")).getImage();
@@ -98,6 +142,11 @@ class CocaCola extends Bebida{
     }
 }
 
+
+
+/**
+ * Clase Dulce que hereda de Producto
+ * */
 abstract class Dulce extends Producto{
     
     public Dulce(int serie){
@@ -105,6 +154,11 @@ abstract class Dulce extends Producto{
     }
 }
 
+
+
+/**
+ * Clase Snickers que hereda de Dulce
+ * */
 class Snickers extends Dulce{
     
     public Snickers(int serie){
@@ -114,6 +168,12 @@ class Snickers extends Dulce{
     public String getName(){
         return "Snickers";
     }
+
+
+    /** Metodo que dibuja y muestra elementos en la GUI, dibuja la imagen de un Snickers
+     * @param g representa el contexto grafico
+     * @param panel representa en donde se dibujara
+     */
     public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoSnickers.png")).getImage();
@@ -126,6 +186,11 @@ class Snickers extends Dulce{
     }
 }
 
+
+
+/**
+ * Clase Super8 que hereda de Dulce
+ * */
 class Super8 extends Dulce{
     
     public Super8(int serie){
@@ -135,6 +200,12 @@ class Super8 extends Dulce{
     public String getName(){
         return "Super 8";
     }
+
+
+    /** Metodo que dibuja y muestra elementos en la GUI, dibuja la imagen de un Super8
+     * @param g representa el contexto grafico
+     * @param panel representa en donde se dibujara
+     */
     public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoSuper8.png")).getImage();

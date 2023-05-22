@@ -3,9 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *
- * @author Naxo
- */
+ * Clase que entrega los productos y el vuelto al comprador
+ * */
 public class Expendedor extends JPanel{
     private DepositoVuelto dv;
     private Deposito cocacola;
@@ -22,9 +21,12 @@ public class Expendedor extends JPanel{
     public static final int  SPRITE=2;
     public static final int  SNICKERS=3;
     public static final int  SUPER8=4;
-    
 
-    
+
+    /** Constructor, crea productos y los envia al deposito
+     * @param numProducto numero de productos
+     * @param precioProducto precio del producto
+     *  */
     public Expendedor(int numProducto,int precioProducto){
         x = 667;
         y = 28;
@@ -43,9 +45,12 @@ public class Expendedor extends JPanel{
             super8.addProducto(new Super8(400 +i));           
         }
     }
-    
-    
-    
+
+
+    /** Inicializa variables, comprueba la validez de la solicitud del comprador y saca productos y dinero de los depositos
+     * @param m maneja las monedas (Moneda)
+     * @param sabor maneja el tipo de producto (int)
+     */
     public Producto comprarProducto(Moneda m, int sabor){
         if(m==null)return null;
         int vuelto = m.getValor();
@@ -99,11 +104,18 @@ public class Expendedor extends JPanel{
         }
         
     }
-    
+
+
+    /** Saca monedas del deposito de vuelto
+     * @return retorna monedas del deposito de vuelto
+     * */
     public Moneda getVuelto(){
         return (Moneda) dv.getMoneda();
-    }   
-    
+    }
+
+
+    /** Rellena el deposito si faltan productos o imprime que aun quedan
+     * */
     public void Refill(){
         if(cocacola.isEmpty()){
             for (int i = 0; i < cocacola.Size(); i++){
@@ -139,17 +151,22 @@ public class Expendedor extends JPanel{
             System.out.println("Aun quedan Super8.");
         }
     }  
-    
-      public int getX(){
+
+
+
+    public int getX(){
         return x;
     }
     
     public int getY(){
         return y;
     }
-    
-    
-    
+
+
+    /** Metodo que dibuja y muestra elementos en la GUI
+     * @param g representa el contexto grafico
+     * @param panel representa en donde se dibujara
+     */
     public void paint(Graphics g,JPanel panel){
         super.paint(g);
         

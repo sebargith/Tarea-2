@@ -6,6 +6,12 @@ public class Comprador{
     private String sabor;
     private int vuelto;
     private Expendedor exp;
+
+    /** Recibe la moneda del comprador, el tipo de producto y comprueba la validez de esta solicitud
+     * @param m maneja las monedas (Moneda)
+     * @param cual maneja la seleccion del comprador (int)
+     * @param exp llama a metodos del Expendedor (Expendedor)
+     */
     
     public Comprador(Moneda m, int cual, Expendedor exp){
           this.exp=exp;
@@ -36,10 +42,17 @@ public class Comprador{
             moneda = exp.getVuelto();
         }
     }
+
+    /** Metodo que retorna el tipo de producto
+     * @return retorna el tipo de producto
+     * */
     public  String queBebiste(){
         return sabor;
     }
-    
+
+    /** Metodo que retorna el vuelto
+     * @return retorna el vuelto
+     * */
     public int cuantoVuelto() {
         return vuelto;
     }

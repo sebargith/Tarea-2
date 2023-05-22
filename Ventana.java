@@ -2,9 +2,14 @@
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
-
+/**
+ * Crea la ventana en donde se muestran todos los paneles
+ * */
 public class Ventana extends JFrame {
-    
+
+
+    /** Constructor, define los parametros de la ventana
+     * */
     public Ventana(){
         super();
         this.setLayout(new BorderLayout());
