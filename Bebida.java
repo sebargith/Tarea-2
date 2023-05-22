@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Clase Bebida que hereda de Producto
  * */
@@ -29,6 +32,17 @@ class Sprite extends Bebida {
     public String getName(){
         return "Sprite";
     }
+
+    public void paint(Graphics g, JPanel panel){
+        try {
+            Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoSprite.png")).getImage();
+            g.drawImage(i, getX(), getY(), 49, 71, panel);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
+    }
 }
 
 
@@ -50,5 +64,16 @@ class CocaCola extends Bebida{
 
     public String getName(){
         return "Coca-Cola";
+    }
+
+    public void paint(Graphics g, JPanel panel){
+        try {
+            Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoCocaCola.png")).getImage();
+            g.drawImage(i, getX(), getY(), 49, 71, panel);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
 }

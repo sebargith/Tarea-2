@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Clase Dulce que hereda de Producto
  * */
@@ -28,6 +31,17 @@ class Snickers extends Dulce{
     public String getName(){
         return "Snickers";
     }
+
+    public void paint(Graphics g, JPanel panel){
+        try {
+            Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoSnickers.png")).getImage();
+            g.drawImage(i, getX(), getY(), 49, 71, panel);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
+    }
 }
 
 /**
@@ -46,5 +60,16 @@ class Super8 extends Dulce{
      * */
     public String getName(){
         return "Super 8";
+    }
+
+    public void paint(Graphics g, JPanel panel){
+        try {
+            Image i = new ImageIcon(this.getClass().getResource("Textura/ProductoSuper8.png")).getImage();
+            g.drawImage(i, getX(), getY(), 49, 71, panel);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
 }
